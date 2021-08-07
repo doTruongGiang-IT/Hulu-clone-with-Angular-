@@ -1,0 +1,51 @@
+<div class="movieDetails-reviews" *ngIf="reviews">
+    <h2>Social</h2>
+    <span>Reviews</span>
+    <nz-badge nzStandalone [nzCount]="reviews.results.length" [nzStyle]="{ backgroundColor: '#06202A', 'margin': '0 0 15px 5px' }"></nz-badge>
+    <div class="movieDetails-reviews-list">
+        <ng-container *ngIf="reviews.results.length !== 0;else none">
+            <!-- <nz-list *ngIf="reviews.results.length" [nzDataSource]="reviews.results" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
+                <ng-template #item let- *ngFor="let i = index"> -->
+                <div class="movieDetails-reviews-container" *ngFor="let review of reviews.results; let i = index">
+                    <!-- <nz-avatar class="author" nzSize="large" nzSrc="{{reviews.avatars[i]}}"></nz-avatar>
+                    <div class="movieDetails-reviews-content">
+                        <h2>A review by {{review.author_details.username}}</h2>
+                        <p>Written by {{review.author_details.username}} on {{review.created_at}}</p>
+                        <p>{{review.content}}</p>
+                    </div> -->
+                    <nz-comment class="movieDetails-reviews-content" [nzAuthor]="review.author_details.username" [nzDatetime]="review.created_at">
+                        <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="avatars[i]"></nz-avatar>
+                        <nz-comment-content>
+                            <p>{{review.content}}</p>
+                        </nz-comment-content>
+                        <nz-comment-action>
+                            <i nz-tooltip nzTitle="Like" nz-icon nzType="like" [nzTheme]="likes > 0 ? 'twotone' : 'outline'" (click)="like()"></i>
+                            <span class="count like">{{likes}}</span>
+                        </nz-comment-action>
+                        <nz-comment-action>
+                            <i nz-tooltip nzTitle="Dislike" nz-icon nzType="dislike" [nzTheme]="dislikes > 0 ? 'twotone' : 'outline'" (click)="dislike()"></i>
+                            <span class="count dislike">{{dislikes}}</span>
+                        </nz-comment-action>
+                        <nz-comment-action>Reply to</nz-comment-action>
+                    </nz-comment>
+                </div>
+                <nz-comment id="add_comment">
+                    <nz-avatar *ngIf="user.avatar_path" nz-comment-avatar nzIcon="user" [nzSrc]="image_url+user.avatar_path"></nz-avatar>
+                    <nz-comment-content>
+                      <nz-form-item>
+                        <textarea [(ngModel)]="inputValue" nz-input rows="4"></textarea>
+                      </nz-form-item>
+                      <nz-form-item>
+                        <button nz-button nzType="primary" [nzLoading]="submitting" [disabled]="!inputValue" (click)="handleSubmit()">
+                          Add Comment
+                        </button>
+                      </nz-form-item>
+                    </nz-comment-content>
+                </nz-comment>
+            <!-- </nz-list> -->
+        </ng-container>
+        <ng-template #none>
+            <nz-empty [nzNotFoundContent]="null"></nz-empty>
+        </ng-template>
+    </div>
+</div>

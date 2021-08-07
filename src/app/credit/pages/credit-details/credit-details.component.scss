@@ -1,0 +1,159 @@
+.creditDetails {
+
+    &-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 20px 40px;
+    };
+
+    &-personalInfo {
+        width: 30%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        
+        img {
+            border-radius: 20px;
+            object-fit: cover;
+        };
+
+        i {
+            display: inline-block;
+            font-size: 30px;
+            margin-right: 20px;
+        };
+
+        h2 {
+            color: white;
+            font-weight: bold;
+            font-size: 25px;
+        };
+
+        &-socials {
+            display: flex;
+            margin: 20px 0 20px 0;
+        };
+
+        &-details {
+            display: flex;
+            flex-direction: column;
+            margin: 10px 0 15px 0;
+
+            h2 {
+                font-size: 20px;
+            };
+        };
+    };
+
+    &-biography {
+        width: 70%;
+        height: fit-content;
+
+        h2 {
+            font-size: 35px;
+            font-weight: bolder;
+            color: white;
+        };
+
+        h3 {
+            font-weight: bold;
+            color: white;
+            font-size: 25px;
+        };
+
+        img {
+            border-radius: 20px;
+            object-fit: cover;
+            margin-right: 20px;
+        };
+
+        &-images {
+            display: flex;
+            overflow-x: scroll;
+
+            &::-webkit-scrollbar {
+                display: none;
+            };
+        };
+
+        &-content {
+            width: fit-content;
+            height: fit-content;
+            border-radius: 10px;
+            position: relative;
+        };
+
+        &-likes {
+            width: 200px;
+            height: 50px;
+            background-color: white;
+            opacity: 0.5;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            span {
+                font-size: 20px;
+                color: #06202A;
+                font-weight: 500;
+            };
+
+            i {
+                font-size: 20px;
+                color: #06202A;
+                margin: 0 10px 0 5px;
+            };
+        };
+    };
+};
+
+@media (min-width: '414px') and (max-width: '767px') {
+    .creditDetails {
+        &-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        };
+
+        &-personalInfo {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+
+            & #personalInfo{
+                display: none;
+            };
+
+            &-socials {
+                display: none;
+            };
+
+            &-details {
+                display: none;
+            };
+        };
+
+        &-biography {
+            width: 100%;
+        }
+    };
+};
+
+@media (min-width: '768px') and (max-width: '1024px') {
+    .creditDetails {
+        &-personalInfo {
+            width: 45%;
+        };
+
+        &-biography {
+            width: 55%;
+        };
+    };
+};

@@ -1,0 +1,7 @@
+<nav class="navbar">
+    <div class="navbar-container">
+        <ul class="navbar-list">
+            <li (click)="fetchGenre(movie.id)" class="navbar-item" *ngFor="let movie of movieTypes">{{movie.title}}</li>
+        </ul>
+    </div>
+</nav>

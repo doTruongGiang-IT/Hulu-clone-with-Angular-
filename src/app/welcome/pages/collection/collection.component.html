@@ -1,0 +1,26 @@
+<div class="collection">
+    <div class="collection-container">
+        <div class="collection-banner">
+            <nz-avatar id="userAvatar" nzIcon="user" nzSrc="../../../../assets/images/profile.png"></nz-avatar>
+            <div class="collection-info">
+                <h2>{{userLogin.firstName}} {{userLogin.lastName}}</h2>
+                <div class="collection-progress">
+                    <nz-progress class="percentage" [nzPercent]="0" nzType="circle" [nzWidth]="50"></nz-progress>
+                    <p>Average Movie Score</p>
+                    <span></span>
+                    <nz-progress class="percentage" [nzPercent]="0" nzType="circle" [nzWidth]="50"></nz-progress>
+                    <p>Average TV Score</p>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="collection-content">
+            <h2>YOUR COLLECTIONS <span>Movies<nz-badge nzStandalone [nzCount]="userLogin.favorites.length" [nzStyle]="{ backgroundColor: '#06202A'}"></nz-badge></span></h2>
+            <ng-container *ngFor="let movieDetails of userLogin.favorites">
+                <app-collection-item [movieDetails]="movieDetails" (valueChange)="reRender($event)"></app-collection-item>
+            </ng-container>
+            
+
+        </div>
+    </div>
+</div>

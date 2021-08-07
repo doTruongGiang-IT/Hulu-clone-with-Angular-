@@ -1,0 +1,201 @@
+.auth {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 50px;
+
+    h2 {
+        font-weight: bolder;
+        font-size: 30px;
+        margin: 0;
+        color: #06202A;
+        margin: 20px 0 30px;
+    };
+
+    p {
+        font-size: 15px;
+        font-weight: 300;
+        line-height: 20px;
+        letter-spacing: 0.5px;
+        color: #06202A;
+    };
+
+    button {
+        background-color: #06202A;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+        box-shadow: 5px 10px 18px #888888;
+
+        &:active {
+            transform: scale(0.9);
+        };
+
+        &.ghost {
+            background: transparent;
+            border-color: white;
+        };
+    };
+
+    &-container {
+        background-color: white;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100vh;
+
+        &.right_panel_active .sign_in_container {
+            transform: translateX(100%);
+            opacity: 0;
+        };
+
+        &.right_panel_active .sign_up_container {
+            transform: translateX(45%);
+            opacity: 1;
+            z-index: 5;
+            top: 10%;
+        };
+
+        &.right_panel_active .overlay_container {
+            transform: translateX(-234%);
+        };
+
+        &.right_panel_active .overlay {
+            transform: translateX(50%);
+        };
+
+        &.right_panel_active .overlay_left {
+            transform: translateX(0);
+        };
+
+        &.right_panel_active .overlay_right {
+            transform: translateX(20%);
+        };
+    };
+
+    &-form_container {
+        position: absolute;
+        top: 25%;
+        height: 100%;
+        transition: all 0.6s ease-in-out;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 50px;
+        };
+
+        input {
+            color: #06202A;
+            border: none;
+            outline: none;
+            padding: 12px 15px;
+            margin: 8px 0;
+            width: 50%;
+            background-color: #eee;
+            border-radius: 20px;
+
+            &.ng-invalid.ng-dirty {
+                border: 1px solid red;
+            };
+        };
+    };
+
+    &-social_container {
+        margin: 20px 0;
+
+        button {
+            margin: 0 10px;
+            background-color: #06202A;
+            color: white;
+            border: none;
+            outline: none;
+            text-transform: none;
+        }
+    };
+
+    &-overlay_container {
+        position: absolute;
+        top: 0;
+        left: 70%;
+        width: 30%;
+        height: 100%;
+        overflow: hidden;
+        transition: transform 0.6s ease-in-out;
+        z-index: 100;
+    };
+
+    &-overlay {
+        background: linear-gradient(to bottom left, #08eed3, #34A89A) no-repeat 0 0 /cover;
+        position: relative;
+        left: -100%;
+        height: 100%;
+        width: 200%;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+
+        h2, p {
+            color: white;
+        };
+    };
+
+    &-overlay_panel {
+        position: absolute;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 50%;
+        text-align: center;
+        padding: 0 40px;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+    };
+};
+
+.sign_in_container {
+    left: 0;
+    width: 70%;
+    z-index: 2;
+};
+
+.sign_up_container {
+    left: 0;
+    width: 70%;
+    z-index: 1;
+    opacity: 0;
+};
+
+.overlay_left {
+    transform: translateX(-20%);
+};
+
+.overlay_right {
+    right: 0;
+    transform: translateX(0);
+};
+
+@media (min-width: '414px') and (max-width: '767px') {
+    .auth-overlay_panel p {
+        display: none;
+    };
+};
+
+@media (min-width: '768px') and (max-width: '1024px') {
+    .auth-container {
+        &.right_panel_active .sign_up_container {
+            transform: translateX(45%);
+            opacity: 1;
+            z-index: 5;
+            top: 20%;
+        };
+    };
+};

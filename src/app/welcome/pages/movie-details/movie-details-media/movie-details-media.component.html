@@ -1,0 +1,17 @@
+<div class="movieDetails-media" *ngIf="medias">
+    <h2>Media<nz-badge nzStandalone [nzCount]="medias.results.length" [nzStyle]="{ backgroundColor: '#06202A', 'margin': '0 0 15px 5px' }"></nz-badge></h2>
+    <ng-container *ngIf="medias.keys;else noneMedia">
+        <div class="movieDetails-media-list" id="#trailer">
+            <div class="movieDetails-media-container" *ngFor="let media of medias.keys">
+                <youtube-player
+                    [videoId]="media"
+                    (ready)="savePlayer($event)"
+                    (change)="onStateChange($event)">
+                </youtube-player>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #noneMedia>
+        <nz-empty [nzNotFoundContent]="null"></nz-empty>
+    </ng-template>
+</div>

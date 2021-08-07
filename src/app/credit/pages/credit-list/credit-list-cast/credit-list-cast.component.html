@@ -1,0 +1,18 @@
+<div class="creditList-credit" *ngIf="credits">
+    <h2>Series Cast</h2>
+    <div class="creditList-creditItem" *ngFor="let cast of credits.cast" (click)="goToDetails(cast.id)">
+        <ng-container *ngIf="cast.profile_path;else notFound">
+            <!-- <img src="{{image_url+cast.profile_path}}" alt="profile image" /> -->
+            <img nzDisablePreview="true" nz-image width="150px" height="150px" nzSrc="{{image_url+cast.profile_path}}" alt="" />
+        </ng-container>
+        <ng-template #notFound>
+            <!-- <img src="../../../../assets/images/profile.png" alt="profile image" /> -->
+            <img nzDisablePreview="true" nz-image width="150px" height="150px" nzSrc="../../../../assets/images/profile.png" alt="" />
+        </ng-template>
+        <div class="creditList-creditItem-info">
+            <h2>{{cast.name}}</h2>
+            <p>Job: {{cast.known_for_department}}</p>
+            <p>Character: {{cast.character}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="movieDetails-socials" id="recommends" *ngIf="recommendations">
+    <h2>Recommendations</h2>
+    <ng-container *ngIf="recommendations.results.length !== 0;else noneRecommend">
+        <div class="movieDetails-socials-list">
+            <div class="movieDetails-socials-container" *ngFor="let recommend of recommendations.results">
+                <ng-container *ngIf="recommend.backdrop_path;else poster">
+                    <!-- <img src="{{image_url+recommend.backdrop_path}}" alt="recommend image" /> -->
+                    <img nzDisablePreview="true" nz-image width="400px" height="200px" nzSrc="{{image_url+recommend.backdrop_path}}" alt="" />
+                </ng-container>
+                <ng-template #poster>
+                    <!-- <img src="{{image_url+recommend.poster_path}}" alt="recommend image" /> -->
+                    <img nzDisablePreview="true" nz-image width="400px" height="200px" nzSrc="{{image_url+recommend.backdrop_path}}" alt="" />
+                </ng-template>
+                <div class="movieDetails-socials-desc">
+                    <div class="movieDetails-socials-desc-left">
+                        <i nz-icon nzType="calendar" nzTheme="fill"></i>
+                        <p>{{recommend.release_date}}</p>
+                    </div>
+                    <div class="movieDetails-socials-desc-right">
+                        <i nz-icon nzType="heart" nzTheme="fill"></i>
+                        <i nz-icon nzType="book" nzTheme="fill"></i>
+                        <i nz-icon nzType="star" nzTheme="fill"></i>
+                    </div>
+                </div>
+                <div class="movieDetails-socials-name">
+                    <p>{{recommend.title || recommend.original_title}}</p>
+                    <p>{{Math.round(recommend.vote_average * 10)}}%</p>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #noneRecommend>
+        <nz-empty [nzNotFoundContent]="null"></nz-empty>
+    </ng-template>
+</div>

@@ -1,0 +1,42 @@
+<div class="movieDetails-socials" *ngIf="similarities">
+    <h2>Social</h2>
+    <nz-tabset nzType="card">
+        <nz-tab nzTitle="Similarities">
+            <ng-container *ngIf="similarities.results.length !== 0;else noneSimilarity">
+                <div class="movieDetails-socials-list">
+                    <div class="movieDetails-socials-container" *ngFor="let similarity of similarities.results">
+                        <ng-container *ngIf="similarity.backdrop_path;else poster">
+                            <!-- <img src="{{image_url+similarity.backdrop_path}}" alt="similarity image" /> -->
+                            <img nzDisablePreview="true" nz-image width="400px" height="200px" nzSrc="{{image_url+similarity.backdrop_path}}" alt="" />
+                        </ng-container>
+                        <ng-template #poster>
+                            <!-- <img src="{{image_url+similarity.poster_path}}" alt="similarity image" /> -->
+                            <img nzDisablePreview="true" nz-image width="400px" height="200px" nzSrc="{{image_url+similarity.poster_path}}" alt="" />
+                        </ng-template>
+                        <div class="movieDetails-socials-desc">
+                            <div class="movieDetails-socials-desc-left">
+                                <i nz-icon nzType="calendar" nzTheme="fill"></i>
+                                <p>{{similarity.release_date}}</p>
+                            </div>
+                            <div class="movieDetails-socials-desc-right">
+                                <i nz-icon nzType="heart" nzTheme="fill"></i>
+                                <i nz-icon nzType="book" nzTheme="fill"></i>
+                                <i nz-icon nzType="star" nzTheme="fill"></i>
+                            </div>
+                        </div>
+                        <div class="movieDetails-socials-name">
+                            <p>{{similarity.title || similarity.original_title}}</p>
+                            <p>{{Math.round(similarity.vote_average * 10)}}%</p>
+                        </div>
+                    </div>
+                  </div>
+            </ng-container>
+            <ng-template #noneSimilarity>
+                <nz-empty [nzNotFoundContent]="null"></nz-empty>
+            </ng-template>
+        </nz-tab>
+        <nz-tab nzTitle="Posters">
+            <nz-empty [nzNotFoundContent]="null"></nz-empty>
+        </nz-tab>
+    </nz-tabset>
+</div>

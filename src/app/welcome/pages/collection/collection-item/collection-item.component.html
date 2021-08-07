@@ -1,0 +1,27 @@
+<div class="collection-item" *ngIf="movieDetails">
+    <ng-container *ngIf="movieDetails.backdrop_path;else poster">
+        <img (click)="showDetails(movieDetails.id)" nz-image width="150px" height="215px" nzSrc="{{image_url+movieDetails.backdrop_path}}" nzDisablePreview="true" alt="" />
+    </ng-container>
+    <ng-template #poster>
+        <img (click)="showDetails(movieDetails.id)" nz-image width="150px" height="215px" nzSrc="{{image_url+movieDetails.poster_path}}" nzDisablePreview="true" alt="" />
+    </ng-template>
+    <div class="collection-desc">
+        <div class="collection-desc-header">
+            <nz-progress class="percentage" [nzPercent]="movieDetails.vote_average*10" nzType="circle" [nzWidth]="80"></nz-progress>
+            <div class="collection-desc-name">
+                <h2>{{movieDetails.title}}</h2>
+                <p>{{movieDetails.release_date}}</p>
+            </div>
+        </div>
+        <ng-container *ngIf="(size >= 768 && 1024 > size);else tablet">
+            <p class="collection-desc-overview" (window:resize)="onResize($event)">{{movieDetails.overview | formatData: 50}}</p>
+        </ng-container>
+        <ng-template #tablet>
+            <p class="collection-desc-overview" (window:resize)="onResize($event)">{{movieDetails.overview | formatData: 180}}</p>
+        </ng-template>
+        <div (click)="removeFavor(movieDetails.id)" class="collection-desc-action">
+            <button nz-button nzType="default" nzShape="circle"><i nz-icon nzType="close"></i></button>
+            <p>Remove</p>
+        </div>  
+    </div>
+</div>

@@ -1,0 +1,120 @@
+.movieDetails {
+    &-socials {
+        padding: 20px 40px 20px 40px;
+        overflow: hidden;
+        height: fit-content;
+
+        h2 {
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            transition: all 0.3s ease;
+        };
+
+        &-full {
+            width: fit-content;
+        };
+
+        &-full:hover {
+            opacity: 0.5;
+            cursor: pointer;
+        };
+
+        &::ng-deep p {
+            margin: 0;
+        };
+
+        &::ng-deep > .ant-tabs-card .ant-tabs-content {
+            height: fit-content;
+            margin-top: -16px;
+        };
+
+        &::ng-deep > .ant-tabs-card .ant-tabs-content > .ant-tabs-tabpane {
+            background: transparent;
+            padding: 16px;
+        };
+
+        &::ng-deep > .ant-tabs-card > .ant-tabs-nav::before {
+            display: none;
+        };
+
+        &::ng-deep > .ant-tabs-card .ant-tabs-tab {
+            border-color: transparent;
+            background: transparent;
+            color: white;
+            font-weight: bold;
+        };
+
+        &::ng-deep > .ant-tabs-card .ant-tabs-tab-active {
+            border-color: #fff;
+            background: #fff;
+        };
+
+        &-list {
+            display: flex;
+            overflow-x: scroll;
+            height: 320px;
+
+            &::-webkit-scrollbar {
+                display: none;
+            };
+        };
+
+        &-container {
+            height: 200px;
+            width: 400px;
+            border-radius: 20px;
+            margin: 0 20px 20px 0;
+            position: relative;
+            
+            img {
+                object-fit: cover;
+                border-radius: 20px;
+            };
+        };
+
+        &-desc {
+            width: 100%;
+            height: 50px;
+            border-radius: 20px;
+            position: absolute;
+            bottom: 0;
+            background-color: white;
+            opacity: 0.7; 
+            display: flex;
+            justify-content: space-between;
+
+            i {
+                font-size: 22px;
+                color: #06202A;
+                margin: 0 10px 0 10px;
+            };
+
+            p {
+                color: #06202A;
+                font-size: 22px;
+                margin-left: 5px;
+            };
+
+            &-left {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+            };
+
+            &-right {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            };
+        };
+
+        &-name {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+        };
+    };
+};

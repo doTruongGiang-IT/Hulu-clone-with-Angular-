@@ -1,0 +1,5 @@
+<div class="movieList" *ngIf="movies">    
+    <div [routerLink]="['/list', movie.id]" *ngFor="let movie of movies.results">
+        <app-movie-item [movie]="movie"></app-movie-item>
+    </div>
+</div>

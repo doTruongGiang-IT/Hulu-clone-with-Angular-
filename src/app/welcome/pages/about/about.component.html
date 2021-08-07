@@ -1,0 +1,87 @@
+<div class="about">
+    <div class="about-container">
+        <div class="about-stats">
+            <div class="about-stats-content">
+                <h2>Stats</h2>
+                <p>We all love them. Here is a few that we find interesting.</p>
+                <div class="about-statItem">
+                    <div *ngFor="let stat of statList">
+                        <h2>{{stat.number}}</h2>
+                        <p>{{stat.name}}</p>
+                    </div>
+                </div>
+            </div>
+            <div 
+                data-aos="zoom-in-up"
+                data-aos-offset="200"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
+                data-aos-mirror="true"
+                data-aos-once="false"
+            >
+                <nz-avatar class="about-avatar" nzSize="large" nzSrc="../../../../assets/images/avatar.jpg"></nz-avatar>
+            </div>
+        </div>
+        <hr />
+        <div class="about-stories">
+            <div *ngFor="let story of stories" [style]="{'display': 'flex', 'flex-direction': story.direction, 'justify-content': 'space-between', 'align-items': 'center'}">
+                <div class="about-stories-content"
+                    [attr.data-aos]="story.animatePara"
+                    data-aos-offset="200"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
+                    data-aos-mirror="true"
+                    data-aos-once="false"
+                >
+                    <h2>{{story.year}}</h2>
+                    <h3>{{story.title}}</h3>
+                    <p>{{story.paragraph}}</p>
+                </div>
+                <div
+                    [attr.data-aos]="story.animateImage"
+                    data-aos-offset="200"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
+                    data-aos-mirror="true"
+                    data-aos-once="false"
+                >
+                    <img src="{{story.image}}" alt="" [style]="{'height': story.imageHeight, 'width': story.imageWidth, 'box-shadow': '5px 10px 18px #888888', 'margin': '50px 0px'}" />
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="about-info">
+            <div
+                data-aos="flip-left"
+                data-aos-offset="200"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
+                data-aos-mirror="true"
+                data-aos-once="false"
+            >
+                <!-- <img src="../../../../assets/images/hulu.jpg" alt="hulu image" /> -->
+                <img nzDisablePreview="true" nz-image width="300px" height="350px" nzSrc="../../../../assets/images/hulu.jpg" alt="" />
+            </div>
+            <div class="about-info-desc"
+                data-aos="fade-up-left"
+                data-aos-offset="200"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
+                data-aos-mirror="true"
+                data-aos-once="false"
+            >
+                <h2>About Hulu</h2>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                </p>
+            </div>
+        </div>
+        <nz-back-top [nzVisibilityHeight]="500"></nz-back-top>
+    </div>
+</div>

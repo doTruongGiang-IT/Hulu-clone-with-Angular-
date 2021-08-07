@@ -1,0 +1,35 @@
+.movieDetails {
+    &-media {
+        padding: 20px 40px 20px 40px;
+        overflow: hidden;
+
+        h2 {
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            transition: all 0.3s ease;
+        };
+
+        &-full {
+            width: fit-content;
+        };
+
+        &-full:hover {
+            opacity: 0.5;
+            cursor: pointer;
+        };
+    
+        &-list {
+            display: flex;
+            overflow-x: scroll;
+
+            &::-webkit-scrollbar {
+                display: none;
+            };
+        };
+
+        &-container {
+            margin: 0 20px 20px 0;
+        };
+    };
+};

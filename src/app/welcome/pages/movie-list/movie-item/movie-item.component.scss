@@ -1,0 +1,130 @@
+.movie {
+    margin: 0 20px;
+
+    &:hover {
+        transition: transform 0.2s ease;
+        transform: scale(1.05);
+        cursor: pointer;
+    };
+
+    &:hover h2 {
+        transition: transform 0.2s ease;
+        font-weight: bolder;
+    };
+
+    &:hover &-body {
+        transition: transform 0.2s ease;
+        opacity: 1;
+    };
+
+    &-container {
+        height: 400px;
+        width: 450px;
+        margin: 20px;
+    };
+
+    &-image {
+        width: 100%;
+        height: 350px;
+
+        img {
+            object-fit: cover;
+        };
+    };
+
+    &-desc {
+        padding: 10px;
+    };
+
+    &-header {
+        display: flex;
+        align-items: center;
+        white-space: nowrap; 
+        justify-content: space-between;
+
+        p {
+            text-overflow: ellipsis; 
+            white-space: nowrap; 
+            overflow: hidden;
+            width: 40%;
+        };
+
+        h2 {
+            color: white;
+            text-overflow: ellipsis; 
+            white-space: nowrap; 
+            overflow: hidden;
+            width: 40%;
+            text-align: right;
+        };
+    };
+
+    &-body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        opacity: 0;
+    };
+};
+
+.left {
+    p {
+        padding-right: 10px;
+    }
+};
+
+.right {
+    i {
+        margin-bottom: 13px;
+    }
+
+    p {
+        padding-left: 10px;
+    }
+};
+
+@media (min-width: '414px') and (max-width: '767px') {
+    .movie {
+        &-container {
+            height: 200px;
+            width: 300px;
+            margin: 20px;
+            position: relative;
+        };
+
+        &-image {
+            width: 200px;
+            height: 300px;
+    
+            img {
+                height: 200px;
+                width: 300px;
+                object-fit: cover;
+                object-position: center;
+            };
+        };
+
+        &-desc {
+            position: absolute;
+            top: 190px;
+        };
+
+        &-header {
+            width: 250px;
+            height: fit-content;
+
+            h2 {
+                width: 100%;
+                text-align: left;
+            };
+    
+            p {
+                display: none;
+            };
+        };
+
+        &-body {
+            display: none;
+        };        
+    };
+};

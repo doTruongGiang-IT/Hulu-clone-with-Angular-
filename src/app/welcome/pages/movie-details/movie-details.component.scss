@@ -1,0 +1,34 @@
+.movieDetails {
+
+    &-container {
+        padding: 20px 0 20px 0;
+        position: relative;
+    };
+
+    &-credits, &-reviews, &-media, &-recommends, &-socials {
+        padding: 20px 40px 20px 40px;
+
+        h2 {
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            transition: all 0.3s ease;
+        };
+
+        &-full {
+            width: fit-content;
+        };
+
+        &-full:hover {
+            opacity: 0.5;
+            cursor: pointer;
+        };
+    };
+
+    
+};
+
+.author {
+    height: 70px;
+    width: 70px;
+};

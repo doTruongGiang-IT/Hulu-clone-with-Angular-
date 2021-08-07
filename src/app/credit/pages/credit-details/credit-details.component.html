@@ -1,0 +1,92 @@
+<div class="creditDetails">
+    <div class="creditDetails-container">
+        <div class="creditDetails-personalInfo">
+            <ng-container *ngIf="details.profile_path;else notFound">
+                <!-- <img src="{{image_url+details.profile_path}}" alt="" /> -->
+                <img nz-image width="80%" height="500px" nzSrc="{{image_url+details.profile_path}}" alt="" />
+            </ng-container>
+            <ng-template #notFound>
+                <!-- <img src="../../../../assets/images/profile.png" alt="" /> -->
+                <img nz-image width="80%" height="500px" nzSrc="../../../../assets/images/profile.png" alt="" />
+            </ng-template>
+            <div class="creditDetails-personalInfo-socials">
+                <i nz-icon nzType="facebook" nzTheme="fill"></i>
+                <i nz-icon nzType="twitter-circle" nzTheme="fill"></i>
+                <i nz-icon nzType="instagram" nzTheme="fill"></i>
+            </div>
+            <h2 id="personalInfo">Personal Info</h2>
+            <div class="creditDetails-personalInfo-details">
+                <h2>Known for</h2>
+                <p>{{details.known_for_department}}</p>
+            </div>
+            <div class="creditDetails-personalInfo-details">
+                <h2>Popularity</h2>
+                <p>{{details.popularity}}</p>
+            </div>
+            <div class="creditDetails-personalInfo-details">
+                <h2>Gender</h2>
+                <ng-container *ngIf="details.gender === 0">
+                    <p>Not specified</p>
+                </ng-container>
+                <ng-container *ngIf="details.gender === 1">
+                    <p>Female</p>
+                </ng-container>
+                <ng-container *ngIf="details.gender === 2">
+                    <p>Male</p>
+                </ng-container>
+            </div>
+            <div class="creditDetails-personalInfo-details">
+                <h2>Birthday</h2>
+                <ng-container *ngIf="details.birthday;else blankBirthday">
+                    <p>{{details.birthday}}</p>
+                </ng-container>
+                <ng-template #blankBirthday>
+                    <p>_</p>
+                </ng-template>
+            </div>
+            <div class="creditDetails-personalInfo-details">
+                <h2>Deathday</h2>
+                <ng-container *ngIf="details.deathday;else blankDeathday">
+                    <p>{{details.deathday}}</p>
+                </ng-container>
+                <ng-template #blankDeathday>
+                    <p>_</p>
+                </ng-template>
+            </div>
+            <div class="creditDetails-personalInfo-details">
+                <h2>Place of birth</h2>
+                <ng-container *ngIf="details.place_of_birth;else blankPlaceOfBirthday">
+                    <p>{{details.place_of_birth}}</p>
+                </ng-container>
+                <ng-template #blankPlaceOfBirthday>
+                    <p>_</p>
+                </ng-template>
+            </div>
+            <div class="creditDetails-personalInfo-details">
+                <h2>Also known as</h2>
+                <ng-container *ngIf="details.also_known_as.length !== 0;else blankNick">
+                    <p *ngFor="let nickname of details.also_known_as">{{nickname}}</p>
+                </ng-container>
+                <ng-template #blankNick>
+                    <p>_</p>
+                </ng-template>
+            </div>
+        </div>
+        <div class="creditDetails-biography">
+            <h2>{{details.name}}</h2>
+            <h3>Biography</h3>
+            <p>{{details.biography}}</p>
+            <h3>Images</h3>
+            <div class="creditDetails-biography-images">
+                <div class="creditDetails-biography-content" *ngFor="let image of images.profiles">
+                    <!-- <img src="{{image_url+image.file_path}}" alt="images" /> -->
+                    <img nz-image width="200px" height="300px" nzSrc="{{image_url+image.file_path}}" alt="" />
+                    <div class="creditDetails-biography-likes">
+                        <span>{{image.vote_average}}</span>
+                        <i nz-icon nzType="like" nzTheme="fill"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

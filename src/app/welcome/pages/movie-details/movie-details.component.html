@@ -1,0 +1,15 @@
+<div class="movieDetails" *ngIf="movieDetails">
+    <div class="movieDetails-container">
+        <app-movie-details-banner [movieDetails]="movieDetails"></app-movie-details-banner>
+        <app-movie-details-credits  [credits]="credits"></app-movie-details-credits>
+        <hr />
+        <app-movie-details-reviews [reviews]="reviews"></app-movie-details-reviews>
+        <hr />
+        <app-movie-details-media [medias]="medias"></app-movie-details-media>
+        <hr />
+        <app-movie-details-socials [similarities]="similarities"></app-movie-details-socials>
+        <hr />
+        <app-movie-details-recommends [recommendations]="recommendations"></app-movie-details-recommends>
+    </div>
+</div>
+

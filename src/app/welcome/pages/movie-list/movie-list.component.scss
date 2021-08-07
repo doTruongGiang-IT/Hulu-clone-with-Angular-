@@ -1,0 +1,19 @@
+.movieList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 20px;
+};
+
+@media (min-width: '414px') and (max-width: '767px') {
+    .movieList {
+        justify-content: center;
+    };
+};
+
+@media (min-width: '768px') and (max-width: '1024px') {
+    .movieList {
+        justify-content: center;
+        padding: 20px;
+    };
+};

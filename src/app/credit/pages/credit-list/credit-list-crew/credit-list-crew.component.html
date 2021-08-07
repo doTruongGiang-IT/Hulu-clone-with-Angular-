@@ -1,0 +1,18 @@
+<div class="creditList-credit" *ngIf="credits">
+    <h2>Series Crew</h2>
+    <div class="creditList-creditItem" *ngFor="let crew of credits.crew" (click)="goToDetails(crew.id)">
+        <ng-container *ngIf="crew.profile_path;else notFound">
+            <!-- <img src="{{image_url+crew.profile_path}}" alt="profile image" /> -->
+            <img nzDisablePreview="true" nz-image width="150px" height="150px" nzSrc="{{image_url+crew.profile_path}}" alt="" />
+        </ng-container>
+        <ng-template #notFound>
+            <!-- <img src="../../../../assets/images/profile.png" alt="profile image" /> -->
+            <img nzDisablePreview="true" nz-image width="150px" height="150px" nzSrc="../../../../assets/images/profile.png" alt="" />
+        </ng-template>
+        <div class="creditList-creditItem-info">
+            <h2>{{crew.name}}</h2>
+            <p>Job: {{crew.job}}</p>
+            <p>Dept: {{crew.known_for_department}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="auth">
+    <div class="auth-container" id="container">
+        <div class="auth-form_container sign_up_container">
+            <form [formGroup]="formSignUp" (ngSubmit)="submitFormSignUp()">
+                <h2>Create Free Account</h2>
+                <p>Login using social networks</p>
+                <div class="auth-social_container">
+                    <button class="auth-social" nz-button nzType="default" nzShape="circle">f</button>
+                    <button class="auth-social" nz-button nzType="default" nzShape="circle">G+</button>
+                    <button class="auth-social" nz-button nzType="default" nzShape="circle">in</button>
+                </div>
+                <input type="text" placeholder="First Name" name="firstName" formControlName="firstName" />
+                <app-errors [control]="formSignUp.controls.firstName"></app-errors>
+                <input type="text" placeholder="Last Name" name="lastName" formControlName="lastName" />
+                <app-errors [control]="formSignUp.controls.lastName"></app-errors>
+                <input type="email" placeholder="Email" name="emailSignUp" formControlName="email" />
+                <app-errors [control]="formSignUp.controls.email"></app-errors>
+                <input type="password" placeholder="Password" name="passwordSignUp" formControlName="password" />
+                <app-errors [control]="formSignUp.controls.password"></app-errors>
+                <button [disabled]="formSignUp.invalid" type="submit" nz-button nzType="primary" nzSize="large" nzShape="round"><i nz-icon></i>Sign up</button>
+            </form>
+        </div>
+        <div class="auth-form_container sign_in_container">
+            <form [formGroup]="formSignIn" (ngSubmit)="submitFormSignIn()">
+                <h2>Login to Your Account</h2>
+                <p>Login using social networks</p>
+                <div class="auth-social_container">
+                    <button class="auth-social" nz-button nzType="default" nzShape="circle">f</button>
+                    <button class="auth-social" nz-button nzType="default" nzShape="circle">G+</button>
+                    <button class="auth-social" nz-button nzType="default" nzShape="circle">in</button>
+                </div>
+                <input type="email" placeholder="Email" name="emailSignIn" formControlName="email" />
+                <app-errors [control]="formSignIn.controls.email"></app-errors>
+                <input type="password" placeholder="Password" name="passwordSignIn" formControlName="password" />
+                <app-errors [control]="formSignIn.controls.password"></app-errors>
+                <button type="submit" nz-button nzType="primary" nzSize="large" nzShape="round"><i nz-icon></i>Sign in</button>
+            </form>
+        </div>
+        <div class="auth-overlay_container overlay_container">
+            <div class="auth-overlay overlay">
+                <div class="auth-overlay_panel overlay_left">
+                    <h2>One Of Us</h2>
+                    <p>If you already have an account,</p>
+                    <p>just sign in. We have missed you!</p>
+                    <button class="ghost" id="signIn" (click)="slideForm()" nz-button nzType="primary" nzSize="large" nzShape="round"><i nz-icon></i>Sign in</button>
+                </div>
+                <div class="auth-overlay_panel overlay_right">
+                    <h2>New Here</h2>
+                    <p>Sign up and discover a great</p>
+                    <p>amount of new opportunities!</p>
+                    <button class="ghost" id="signUp" (click)="slideForm()" nz-button nzType="primary" nzSize="large" nzShape="round"><i nz-icon></i>Sign up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="creditList">
+    <div class="creditList-container">
+        <div class="creditList-banner">
+            <ng-container *ngIf="movieDetails.backdrop_path;else notBanner">
+                <!-- <img src="{{image_url+movieDetails.backdrop_path}}" alt="banner background image" /> -->
+                <img nzDisablePreview="true" nz-image width="100%" height="250px" nzSrc="{{image_url+movieDetails.backdrop_path}}" alt="" />
+            </ng-container>
+            <ng-template #notBanner>
+                <!-- <img src="{{image_url+movieDetails.poster_path}}" alt="banner background image" /> -->
+                <img nzDisablePreview="true" nz-image width="100%" height="250px" nzSrc="{{image_url+movieDetails.poster_path}}" alt="" />
+            </ng-template>
+            <div class="creditList-banner-details">
+                <ng-container *ngIf="movieDetails.backdrop_path;else notBanner">
+                    <!-- <img src="{{image_url+movieDetails.backdrop_path}}" alt="banner image" /> -->
+                    <img nzDisablePreview="true" nz-image width="200px" height="250px" nzSrc="{{image_url+movieDetails.backdrop_path}}" alt="" />
+                </ng-container>
+                <ng-template #notBanner>
+                    <!-- <img src="{{image_url+movieDetails.poster_path}}" alt="banner image" /> -->
+                    <img nzDisablePreview="true" nz-image width="200px" height="250px" nzSrc="{{image_url+movieDetails.poster_path}}" alt="" />
+                </ng-template>
+                <div class="creditList-banner-info">
+                    <h2>{{movieDetails.title}}<span>({{movieDetails.release_date}})</span></h2>
+                    <div class="creditList-banner-navigate" [routerLink]="['/list']">
+                        <i nz-icon nzType="arrow-left" nzTheme="outline"></i>
+                        <span>Back to main</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="creditList-series">
+            <app-credit-list-cast [credits]="credits"></app-credit-list-cast>
+            <app-credit-list-crew [credits]="credits"></app-credit-list-crew>
+        </div>
+    </div>
+</div>

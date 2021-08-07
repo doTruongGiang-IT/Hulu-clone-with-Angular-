@@ -1,0 +1,39 @@
+<header class="header">
+    <div nz-row class="header-container">
+        <div nz-col nzFlex="auto">
+            <ul class="header-list">
+                <li [routerLink]="['/list']" class="header-item">
+                    <i nz-icon nzType="home" nzTheme="outline"></i>
+                    <p>HOME</p>
+                </li>
+                <li [routerLink]="['/about']" class="header-item">
+                    <i nz-icon nzType="info-circle" nzTheme="outline"></i>
+                    <p>ABOUT</p>
+                </li>
+                <li [routerLink]="['/collections']" class="header-item">
+                    <i nz-icon nzType="book" nzTheme="outline"></i>
+                    <p>COLLECTIONS</p>
+                </li>
+                <li class="header-item">
+                    <i nz-icon nzType="search" nzTheme="outline"></i>
+                    <p>SEARCH</p>
+                </li>
+                <ng-container *ngIf="userLogin.firstName;else noAuth">
+                    <li (click)="logout()" class="header-item">
+                        <i nz-icon nzType="user" nzTheme="outline"></i>
+                        <p>{{userLogin.firstName}}</p>
+                    </li>
+                </ng-container>
+                <ng-template #noAuth>
+                    <li [routerLink]="['/auth']" class="header-item">
+                        <i nz-icon nzType="user" nzTheme="outline"></i>
+                        <p>LOGIN</p>
+                    </li>
+                </ng-template>
+            </ul>
+        </div>
+        <div [routerLink]="['/list']" nz-col nzFlex="300px" class="header-logo">
+            <img src="https://press.hulu.com/wp-content/uploads/2020/02/hulu-white.png" alt="hulu" />
+        </div>
+    </div>
+</header>

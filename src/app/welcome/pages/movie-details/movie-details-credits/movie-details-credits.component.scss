@@ -1,0 +1,64 @@
+.movieDetails {
+    &-credits {
+        padding: 20px 40px 20px 40px;
+        overflow: hidden;
+
+        h2 {
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            transition: all 0.3s ease;
+        };
+
+        &-full {
+            width: fit-content;
+        };
+
+        &-full:hover {
+            opacity: 0.5;
+            cursor: pointer;
+        };
+
+        &-list {
+            display: flex;
+            align-content: stretch;
+            justify-content: flex-start;
+            align-items: center;
+            overflow-x: scroll;
+
+            &::-webkit-scrollbar {
+                display: none;
+            };
+        };
+
+        &-container {
+            margin: 10px 50px 10px 10px;
+            height: 300px;
+            width: 150px ;
+            background-color: white;
+            border-radius: 20px;
+
+            h2, p {
+                color: #06202A;
+                text-align: center;
+            };
+
+            h2 {
+                font-weight: bold;
+                font-size: 20px;
+            };
+
+            img {
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                object-fit: cover;
+            };
+        };
+
+        // &-image {
+        //     border-top-left-radius: 20px;
+        //     border-top-right-radius: 20px;
+        //     object-fit: cover;
+        // };
+    };
+};

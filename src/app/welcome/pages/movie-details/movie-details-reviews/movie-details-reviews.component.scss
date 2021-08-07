@@ -1,0 +1,117 @@
+.movieDetails {
+    &-reviews {
+        padding: 20px 40px 20px 40px;
+    
+        h2 {
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            transition: all 0.3s ease;
+        };
+    
+        &-full {
+            width: fit-content;
+        };
+    
+        &-full:hover {
+            opacity: 0.5;
+            cursor: pointer;
+        };
+    
+        h2:first-child {
+            display: inline-block;
+            margin-right: 20px;
+        };
+    
+        span {
+            border-bottom: 4px solid white;
+            font-weight: bold;
+            font-size: 18px;
+        };
+    
+        &-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 200px;
+            overflow-y: scroll;
+    
+            &::-webkit-scrollbar {
+                display: none;
+            };  
+    
+            #add_comment {
+                width: 100%;
+                height: fit-content;
+                background-color: white;
+                border-radius: 20px;
+            };
+            
+            textarea {
+                width: 90%;
+                color: #06202A;
+            };
+        };
+    
+        &-container {
+            width: 100%;
+            height: 150px;
+            background-color: white;
+            border-radius: 20px;
+            display: flex;
+            padding: 15px 0 0 20px;
+            margin-bottom: 20px;
+        };
+    
+        &-content {
+            margin-left: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            
+            h2, p {
+                color: #06202A;
+            };
+    
+            h2 {
+                font-weight: bold;
+                font-size: 22px;
+            };
+    
+            // p:last-child {
+            //     width: 1200px; 
+            //     text-overflow: ellipsis; 
+            //     white-space: nowrap;
+            // };
+            p {
+                width: 1200px; 
+                text-overflow: ellipsis; 
+                white-space: nowrap;
+            };
+    
+            .count {
+                padding-left: 8px;
+                cursor: auto;
+            };
+    
+            .ant-comment-rtl .count {
+                padding-right: 8px;
+                padding-left: 0;
+            };
+        };
+    };
+};
+
+@media (min-width: '414px') and (max-width: '767px') {
+    .movieDetails-reviews {
+        &-container {
+            padding: 15px 0 0 0;
+        };
+
+        &-content {
+            margin-left: 10px;
+        };
+    };
+};

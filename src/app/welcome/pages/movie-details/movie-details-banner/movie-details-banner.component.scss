@@ -1,0 +1,82 @@
+.movieDetails {
+    &-banner {
+        width: 100%;
+        height: 550px;
+        background-color: gray;
+
+        img {
+            object-fit: cover;
+            object-position: top;
+            opacity: 0.3;
+        };
+
+        &-desc {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+
+            h2:first-child {
+                font-size: 35px;
+                margin-top: 0;
+            };
+
+            h2 {
+                color: white;
+                font-weight: bolder;
+                font-size: 28px;
+                margin-top: 10px;
+            };
+
+            span {
+                font-weight: normal;
+                margin-right: 10px;
+            };
+
+            span:nth-child(2) {
+                border: 1px solid white;
+                padding: 5px;
+            };
+        };
+    };
+
+    &-percentage {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        button {
+            background-color: #06202A;
+            border: 1px solid white;
+            outline: none;
+            margin-left: 50px;
+        };
+
+        p {
+            color: white;
+            margin: 0 0 0 10px;
+            font-weight: 600;
+            font-size: 22px;        
+        };
+
+        &-trailer {
+            font-size: 35px;
+            cursor: pointer;
+            margin-left: 50px;
+        };
+    };
+};
+
+@media (min-width: '414px') and (max-width: '767px') {
+    .movieDetails-percentage {
+        &-trailer, & p:last-child {
+            display: none
+        };
+    };
+
+    .movieDetails-banner-desc {
+        & #company, & #companies, & #country, & #countries {
+            display: none;
+        };
+    };
+};

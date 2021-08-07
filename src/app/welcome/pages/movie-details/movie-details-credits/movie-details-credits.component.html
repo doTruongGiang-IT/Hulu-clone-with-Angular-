@@ -1,0 +1,18 @@
+<div class="movieDetails-credits" *ngIf="credits">
+    <h2>Series Cast</h2>
+    <div class="movieDetails-credits-list">
+        <div class="movieDetails-credits-container" *ngFor="let castItem of credits.cast">
+            <ng-container *ngIf="castItem.profile_path;else profile">
+                <!-- <img class="movieDetails-credits-image" src="{{image_url+castItem.profile_path}}" alt="credits images" /> -->
+                <img nzDisablePreview="true" nz-image width="150px" height="170px" nzSrc="{{image_url+castItem.profile_path}}" alt="" />
+            </ng-container>
+            <ng-template #profile>
+                <!-- <img class="movieDetails-credits-image" src="../../../../assets/images/profile.png" alt="credits images" /> -->
+                <img nzDisablePreview="true" nz-image width="150px" height="170px" nzSrc="../../../../assets/images/profile.png" alt="" />
+            </ng-template>
+            <h2>{{castItem.name}}</h2>
+            <p>{{castItem.character}}</p>
+        </div>
+    </div>
+    <h2 (click)="navigateToCredits()" class="movieDetails-credits-full">Full Cast & Crew</h2>
+</div>

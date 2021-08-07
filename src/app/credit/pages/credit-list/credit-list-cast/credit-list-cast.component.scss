@@ -1,0 +1,65 @@
+.creditList {
+    &-credit {
+        h2 {
+            color: white;
+            font-weight: bold;
+            font-size: 25px;
+        };
+    };
+
+    &-creditItem {
+        height: 150px;
+        width: 500px;
+        background-color: white;
+        border-radius: 10px;
+        color: #06202A;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        margin-bottom: 30px;
+
+        &:hover {
+            transition: transform 0.2s ease-in-out;
+            transform: scale(0.9);
+        };
+
+        span {
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        img {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            object-fit: cover;
+            object-position: center;
+            margin-right: 20px;
+        };
+
+        &-info {
+            h2 {
+                color: #06202A;
+            };
+        };
+    };
+};
+
+@media (min-width: '414px') and (max-width: '767px') {
+    .creditList {
+        &-credit > h2:first-child {
+            text-align: center;
+        };
+
+        &-creditItem {
+            width: 100%;
+        };
+    };
+};
+
+@media (min-width: '768px') and (max-width: '1024px') {
+    .creditList {
+        &-creditItem {
+            width: 90%;
+        };
+    };
+};
